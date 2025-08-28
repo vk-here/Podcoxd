@@ -2,12 +2,9 @@
   publish = "dist"
   command = "npm run build"
 
-[[headers]]
-  for = "/*"
-  [headers.values]
-    Access-Control-Allow-Origin = "*"
-    Access-Control-Allow-Methods = "GET, POST, PUT, DELETE, OPTIONS"
-    Access-Control-Allow-Headers = "Content-Type, Authorization"
+# Allow the environment variable to be in build output
+[build.environment]
+  SECRETS_SCAN_OMIT_KEYS = "VITE_LISTEN_API_KEY"
 
 [[redirects]]
   from = "/*"
