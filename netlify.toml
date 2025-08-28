@@ -2,7 +2,7 @@
   publish = "dist"
   command = "npm run build"
 
-# Allow the environment variable to be in build output
+# Allow the environment variable in build output
 [build.environment]
   SECRETS_SCAN_OMIT_KEYS = "VITE_LISTEN_API_KEY"
 

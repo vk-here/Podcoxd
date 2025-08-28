@@ -18,10 +18,9 @@ const PodcastTracker = () => {
 
   // API configuration
   const API_CONFIG = {
-    KEY: import.meta.env.VITE_LISTEN_API_KEY || 'your_api_key_here',
+    KEY: import.meta.env.VITE_LISTEN_API_KEY,
     BASE_URL: 'https://listen-api.listennotes.com/api/v2'
-  };
-
+};
   // Mock podcast data
   const mockPodcasts = [
     {
@@ -89,9 +88,11 @@ const PodcastTracker = () => {
     setApiError(null);
     
     try {
-      if (!API_CONFIG.KEY || API_CONFIG.KEY === 'your_api_key_here') {
+      // REMOVE THE STRING CHECK - just check if it exists
+      if (!API_CONFIG.KEY) {
         setPodcasts(mockPodcasts);
         setTrendingPodcasts(mockPodcasts.slice(0, 6));
+        setApiError('API key not configured. Showing sample data.');
         return;
       }
 
@@ -126,8 +127,11 @@ const PodcastTracker = () => {
         setTrendingPodcasts(formattedPodcasts);
         setPodcasts(formattedPodcasts);
       } else {
+        // Handle API errors gracefully
+        console.warn('API returned non-OK status:', response.status);
         setPodcasts(mockPodcasts);
         setTrendingPodcasts(mockPodcasts.slice(0, 6));
+        setApiError('API returned an error. Showing sample data.');
       }
     } catch (error) {
       console.error('API Error:', error);
