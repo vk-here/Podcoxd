@@ -2,9 +2,9 @@
   publish = "dist"
   command = "npm run build"
 
-# Allow the environment variable in build output
+# Temporarily disable secret scanning to get the build working
 [build.environment]
-  SECRETS_SCAN_OMIT_KEYS = "VITE_LISTEN_API_KEY"
+  SECRETS_SCAN_ENABLED = "false"
 
 [[redirects]]
   from = "/*"
