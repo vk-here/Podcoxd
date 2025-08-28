@@ -399,7 +399,7 @@ const PodcastTracker = () => {
             <div className="flex items-center">
               <div className="flex items-center">
                 <Play className="h-8 w-8 text-purple-600" />
-                <span className="ml-2 text-xl font-bold text-gray-900">PodcastLog</span>
+                <span className="ml-2 text-xl font-bold text-gray-900">Podcoxd</span>
               </div>
               
               <div className="hidden md:ml-10 md:flex md:space-x-8">

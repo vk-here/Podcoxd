@@ -2,7 +2,11 @@
   publish = "dist"
   command = "npm run build"
 
-[build.environment]
+# Add context-specific environment variables
+[context.production.environment]
+  VITE_LISTEN_API_KEY = "your_actual_api_key_here"
+
+[context.deploy-preview.environment]
   VITE_LISTEN_API_KEY = "your_actual_api_key_here"
 
 [[redirects]]
