@@ -1,0 +1,11 @@
+[build]
+  publish = "dist"
+  command = "npm run build"
+
+[build.environment]
+  VITE_LISTEN_API_KEY = "your_actual_api_key_here"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
